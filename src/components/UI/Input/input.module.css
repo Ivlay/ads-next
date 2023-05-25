@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.helperText {
+  display: inline-block;
+  font-size: 12px;
+}
+
+.helperTextError {
+  color: brown;
+}
+
+.input {
+  padding: 12px 12px 12px 15px;
+  border: none;
+  border-radius: 2px;
+}
