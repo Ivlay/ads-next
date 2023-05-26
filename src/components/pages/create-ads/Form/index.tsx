@@ -1,23 +1,33 @@
 'use client';
 import { type FC } from 'react';
-import { useForm, useFieldArray, FieldValues } from 'react-hook-form';
+import {
+  useForm,
+  useFieldArray,
+  FieldValues,
+} from 'react-hook-form';
+
+import useAdsStore from '@/store/ads';
 
 import { Button, Input } from '@/components/UI';
 
 import { INPUTS } from './form.constants';
 
 import styles from './form.module.css';
-import useAdsStore from '@/store/ads';
 
 const CreateAdsForm: FC = () => {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
     control,
   } = useForm({
     defaultValues: {
-      images: [{ link: '' }, { link: '' }, { link: '' }],
+      images: [
+        { link: '' },
+        { link: '' },
+        { link: '' },
+      ],
       description: '',
       title: '',
     },
@@ -27,11 +37,13 @@ const CreateAdsForm: FC = () => {
 
   const createAds = useAdsStore((state) => state.create);
 
-  const submit = (values: FieldValues) => {
-    createAds({
+  const submit = async (values: FieldValues) => {
+    await createAds({
       ...values,
       images: values.images.map((image: { link: string }) => image.link).filter(Boolean),
     });
+
+    reset();
   };
 
   return (

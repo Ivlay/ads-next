@@ -5,7 +5,7 @@ import api from '@/api';
 interface CreateAdsSlice {
   loading: boolean;
   error: string;
-  create: (values: FieldValues) => void;
+  create: (values: FieldValues) => Promise<void>;
 }
 
 interface AdsStore {

@@ -23,6 +23,7 @@ export const INPUTS: InputFields<'name' | 'username' | 'password'>[] = [
     name: 'password',
     type: 'password',
     placeholder: 'Enter your password',
+    autoComplete: 'new-password',
     rules: {
       required: {
         value: true,

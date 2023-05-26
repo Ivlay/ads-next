@@ -51,6 +51,8 @@ const SignUpForm: FC = () => {
           <Input
             {...register(input.name, input.rules)}
             name={input.name}
+            autoComplete={input.autoComplete}
+            type={input.type}
             placeholder={input.placeholder}
             error={Boolean(errors?.[input.name])}
             helperText={errors?.[input.name]?.message as string}
