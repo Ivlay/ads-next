@@ -18,9 +18,9 @@ export const metadata = {
 
 const getAds = async () => {
   try {
-    const data = await api.get('/ads');
+    const { data } = await api.get('/ads');
 
-    console.log('data :>> ', data);
+    console.log('data :>> ', data[0]);
   } catch (error) {
     console.log('error :>> ', error);
   }
