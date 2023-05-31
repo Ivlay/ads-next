@@ -1,10 +1,14 @@
+import { type FC } from 'react';
+
 import { ContentLayout } from '@/layouts';
 import { CreateAdsForm } from '@/components/pages/create-ads';
 
-const CreateAdsPage = () => {
+import styles from './page.module.css';
+
+const CreateAdsPage: FC = () => {
   return (
-    <ContentLayout>
-      <h3>Create advertisement</h3>
+    <ContentLayout rootClassName={styles.createAdsSection}>
+      <h3 className={styles.title}>Create advertisement</h3>
       <CreateAdsForm />
     </ContentLayout>
   );

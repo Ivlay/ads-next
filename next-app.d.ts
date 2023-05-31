@@ -1,4 +1,5 @@
 import type { RegisterOptions } from 'react-hook-form';
+import { StateCreator } from 'zustand';
 
 export declare global {
   interface User {
@@ -15,4 +16,6 @@ export declare global {
     autoComplete?: string;
     rules: RegisterOptions;
   }
+
+  type StateCreatorWithDevtools<T> = StateCreator<T, [], [['zustand/devtools', T]]>
 }

@@ -1,9 +1,9 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import { Inter } from 'next/font/google';
 
-import styles from './layout.module.css';
+import { MainLayout } from '@/layouts';
+
 import api from '@/api';
+
 import './globals.css';
 
 const inter = Inter({
@@ -20,7 +20,7 @@ const getAds = async () => {
   try {
     const { data } = await api.get('/ads');
 
-    console.log('data :>> ', data[0]);
+    console.log('data :>> ', data);
   } catch (error) {
     console.log('error :>> ', error);
   }
@@ -36,11 +36,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className={styles.mainLayout}>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <MainLayout>
+          {children}
+        </MainLayout>
       </body>
     </html>
   );

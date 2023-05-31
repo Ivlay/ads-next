@@ -5,6 +5,7 @@ const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACKEND_URI,
   headers: {
     Authorization: `Bearer ${Cookies.get('token') || ''}`,
+    'Content-Type': 'application/json',
   },
 });
 

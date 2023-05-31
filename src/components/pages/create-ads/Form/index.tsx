@@ -13,6 +13,7 @@ import { Button, Input } from '@/components/UI';
 import { INPUTS } from './form.constants';
 
 import styles from './form.module.css';
+import useUserStore from '@/store/user';
 
 const CreateAdsForm: FC = () => {
   const {
@@ -35,7 +36,11 @@ const CreateAdsForm: FC = () => {
 
   const { fields } = useFieldArray({ control, name: 'images' });
 
-  const createAds = useAdsStore((state) => state.create);
+  const createAds = useAdsStore((store) => store.create);
+
+  const isLoggedIn = useUserStore((store) => store.isLoggedIn);
+
+  console.log('isLoggedIn :>> ', isLoggedIn);
 
   const submit = async (values: FieldValues) => {
     await createAds({
